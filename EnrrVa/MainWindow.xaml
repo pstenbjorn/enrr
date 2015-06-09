@@ -1,0 +1,35 @@
+﻿<Window x:Class="Vssc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="1622 Generate" Height="600" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="30,10,0,0" TextWrapping="Wrap" Text="Creating 1622.2 XML" VerticalAlignment="Top"/>
+        <ComboBox Name="cboTable" HorizontalAlignment="Left" Margin="163,45,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="va_results">va_results</ComboBoxItem>
+            <ComboBoxItem Name="va_results_alt">va_results_alt</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Select Source Table" HorizontalAlignment="Left" Margin="30,41,0,0" VerticalAlignment="Top"/>
+        <Button Content="Generate" Click="btnGenerateXML_Click" Name="btnGenerateXML" HorizontalAlignment="Left" Margin="357,45,0,0" VerticalAlignment="Top" Width="75"/>
+        <RichTextBox Name="txtRtb" HorizontalAlignment="Left" Height="477" 
+                     ScrollViewer.CanContentScroll="True"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     Margin="10,83,0,0" VerticalAlignment="Top" Width="772">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button Content="Write To File" Name="btnWriteFile" Click="btnWriteFile_Click" HorizontalAlignment="Left" Margin="513,45,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox Name="cboServerName" HorizontalAlignment="Left" Margin="163,10,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="Local">WINDOWS-K0BCQM6</ComboBoxItem>
+            <ComboBoxItem Name="WNR00714">WNR00714</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Name="cboDbName" HorizontalAlignment="Left" Margin="312,10,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="Enrr">Enrr</ComboBoxItem>
+            <ComboBoxItem Name="VERIS_SERVICES">VERIS SERVICES</ComboBoxItem>
+        </ComboBox>
+
+    </Grid>
+</Window>
