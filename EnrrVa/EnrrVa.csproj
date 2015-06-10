@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="Common\DataConnection.cs" />
     <Compile Include="Common\DataObjects.cs" />
+    <Compile Include="Common\DeserialzerXml.cs" />
     <Compile Include="Common\MakeXml.cs" />
     <Compile Include="Common\SqlConstructors.cs" />
     <Compile Include="Common\TcpDiscovery.cs" />

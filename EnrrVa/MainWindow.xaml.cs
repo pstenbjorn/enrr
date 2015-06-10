@@ -48,7 +48,7 @@ namespace Vssc
                 }
                 else
                 {
-                    DataConnection.serverName = cboServerName.Text;
+                    DataConnection.serverName = cboServerName.Text + ",50000";
                 }
 
                 DataConnection.dbName = cboDbName.Text;
@@ -113,6 +113,15 @@ namespace Vssc
                 string tx = character.ToString();
                 MessageBox.Show("No table selected" + tx, "No Table");
             }
+        }
+
+        private void btoReadFile_Click(object sender, RoutedEventArgs e)
+        {
+            string os = "";
+
+            os = EnrrVa.Common.DeserialzerXml.getXml();
+
+            txtRtb.Selection.Text = os;
         }
 
     }

@@ -30,6 +30,7 @@
             <ComboBoxItem Name="Enrr">Enrr</ComboBoxItem>
             <ComboBoxItem Name="VERIS_SERVICES">VERIS SERVICES</ComboBoxItem>
         </ComboBox>
+        <Button Content="Read File" Name="btoReadFile" Click="btoReadFile_Click" HorizontalAlignment="Left" Margin="633,45,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

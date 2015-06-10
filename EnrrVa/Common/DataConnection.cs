@@ -14,8 +14,9 @@ namespace EnrrVa.Common
 
         public static SqlConnection GetOpenDataConnection()
         {
-            string connstring = "server=" + serverName + ";Trusted_connection=yes;database=" + dbName;
+            string connstring = "";//"server=" + serverName + ";Trusted_connection=yes;database=" + dbName;
 
+            connstring = "server=WNR00714,50000;Trusted_connection=yes;database=VERIS_SERVICES";
             SqlConnection sCon = new SqlConnection(connstring);
 
             try

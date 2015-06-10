@@ -333,7 +333,7 @@ namespace EnrrVa.Common
 
                         }
                         xcand.Add(xcandres);
-                        xcand.Add(new XElement(ns2 + "CandidateId", "can_" + cand.candidateId));
+                        xcand.Add(new XElement(ns2 + "CandidateId", "cand_" + cand.candidateId));
                         xbalsel.Add(xcand);
                     }
                 }
