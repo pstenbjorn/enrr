@@ -309,7 +309,7 @@ namespace EnrrVa.Common
                     new XAttribute(xsi + "type", "CandidateContest"), new XAttribute("SequenceOrder", cont.office_ballot_order),
                     new XAttribute("VotesAllowed", "1")
                     );
-                XElement xbalsel = new XElement(ns2 + "BallotSelection");
+                //XElement xbalsel = new XElement(ns2 + "BallotSelection");
 
                 foreach (var cand in DataObjects.CandidateContests)
                 {
@@ -334,10 +334,10 @@ namespace EnrrVa.Common
                         }
                         xcand.Add(xcandres);
                         xcand.Add(new XElement(ns2 + "CandidateId", "cand_" + cand.candidateId));
-                        xbalsel.Add(xcand);
+                        xcont.Add(xcand);
                     }
                 }
-                xcont.Add(xbalsel);
+                
                 xcont.Add(new XElement(ns2 + "JurisdictionalScopeId", "dis_" + cont.districtId));
                 xcont.Add(new XElement(ns2 + "OfficeId", "off_" + cont.officeId));
                 xcont.Add(new XElement(ns2 + "PrimaryPartyId", cont.party_id));
