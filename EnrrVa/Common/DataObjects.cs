@@ -273,7 +273,30 @@ namespace EnrrVa.Common
 
         }
 
+        public static Dictionary<string, string> electionNames ()
+        {
+            Dictionary<string, string> ret = new Dictionary<string, string>();
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = @"select election_uid, code_name from veris_prod.dbo.election 
+                                    where active = 1 and dateadd(day, 7, election_date) >= getdate() 
+                                    order by election_date";
+                cmd.Connection = DataConnection.GetOpenDataConnection();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ret[reader["election_uid"].ToString()] = reader["code_name"].ToString();
+                }
+            }
+
+
+            return ret;
+        }
+
     }
+
+
 
     public class Election
     {
