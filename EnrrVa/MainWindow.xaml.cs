@@ -28,7 +28,7 @@ namespace Vssc
         public MainWindow()
         {
             InitializeComponent();
-
+            getUpcomingElections();
 
         }
 
@@ -83,6 +83,8 @@ namespace Vssc
         {
             String tablename = "";
 
+            string xdoc = "";
+
             DataConnection.serverName = "";
 
             if (cboServerName.Text == "Local")
@@ -100,7 +102,7 @@ namespace Vssc
 
             if (tablename != "")
             {
-                string xdoc =MakeXml.ToXml(MakeXml.xGen(tablename));
+                xdoc =MakeXml.ToXml(MakeXml.xGen(tablename));
                 using (StreamWriter outfile = new StreamWriter(@"C:\dev\1622.2\output.xml"))
                 {
                     outfile.Write(xdoc);
@@ -122,6 +124,32 @@ namespace Vssc
             os = EnrrVa.Common.DeserialzerXml.getXml();
 
             txtRtb.Selection.Text = os;
+        }
+
+        public void getUpcomingElections()
+        {
+            Dictionary<string, string> UpElections = EnrrVa.Common.DataObjects.electionNames();
+
+            cboElectionName.ItemsSource = UpElections;
+            cboElectionName.DisplayMemberPath = "Value";
+            cboElectionName.SelectedValuePath = "Key";
+            cboElectionName.SelectedIndex = cboElectionName.Items.Count - 1;
+        }
+
+        private void btoUpdateData_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                EnrrVa.Common.DataObjects.updateResultsData(cboElectionName.SelectedValue.ToString());
+            }
+            catch (SqlException err)
+            {
+                MessageBox.Show("Error:" + err.Message);
+            }
+            finally
+            {
+                MessageBox.Show("Data Updated");
+            }
         }
 
     }

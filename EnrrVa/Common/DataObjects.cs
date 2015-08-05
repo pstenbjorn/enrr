@@ -294,6 +294,31 @@ namespace EnrrVa.Common
             return ret;
         }
 
+        public static void updateResultsData(string electionUid)
+        {
+            string sql = @"truncate table [ENR].[va_results_alt]
+            insert into [ENR].[va_results_alt]
+            select '" + electionUid + @"',* from enr.fnCapResults('" + electionUid + @"', null)
+            union
+            select '" + electionUid + @"',* from enr.fnPrecinctResults('" + electionUid + @"', null)
+            union
+            select '" + electionUid + @"',* from enr.fnProvResults('" + electionUid + @"', null)
+            union
+            select '" + electionUid + @"',* from enr.fnWriteInCapResults('" + electionUid + @"', null)
+            union
+            select '" + electionUid + @"',* from enr.fnWriteInPrecinctResults('" + electionUid + @"', null)
+            union
+            select '" + electionUid + @"',* from enr.fnWriteInProvResults('" + electionUid + @"', null)";
+
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Connection = DataConnection.GetOpenDataConnection();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 
 

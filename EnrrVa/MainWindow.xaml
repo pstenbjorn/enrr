@@ -30,7 +30,11 @@
             <ComboBoxItem Name="Enrr">Enrr</ComboBoxItem>
             <ComboBoxItem Name="VERIS_SERVICES">VERIS SERVICES</ComboBoxItem>
         </ComboBox>
+        <ComboBox Name="cboElectionName" HorizontalAlignment="Left"  
+                  Margin="468,10,0,0" VerticalAlignment="Top" Width="200" 
+                  />
         <Button Content="Read File" Name="btoReadFile" Click="btoReadFile_Click" HorizontalAlignment="Left" Margin="633,45,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="UpdateDate" Name="btoUpdateData" Click="btoUpdateData_Click" HorizontalAlignment="Left" Margin="686,10,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
